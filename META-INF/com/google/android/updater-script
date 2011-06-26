@@ -1,4 +1,4 @@
-assert(getprop("ro.product.device") == "GT-S5830" || getprop("ro.build.product") == "GT-S5830" || getprop("ro.product.board") == "GT-S5830");
+assert(getprop("ro.product.device") == "GT-S5830" || getprop("ro.build.product") == "GT-S5830" || getprop("ro.product.board") == "GT-S5830" || getprop("ro.product.model") == "GT-S5830");
 ui_print("flashing recovery to BML...");
 package_extract_file("updater.sh", "/tmp/updater.sh");
 set_perm(0, 0, 0777, "/tmp/updater.sh");
