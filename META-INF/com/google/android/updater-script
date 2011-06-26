@@ -1,0 +1,11 @@
+assert(getprop("ro.product.device") == "GT-S5830" || getprop("ro.build.product") == "GT-S5830" || getprop("ro.product.board") == "GT-S5830");
+ui_print("flashing recovery to BML...");
+package_extract_file("updater.sh", "/tmp/updater.sh");
+set_perm(0, 0, 0777, "/tmp/updater.sh");
+package_extract_file("busybox", "/tmp/busybox");
+set_perm(0, 0, 0777, "/tmp/busybox");
+package_extract_file("flash_image", "/tmp/flash_image");
+set_perm(0, 0, 0777, "/tmp/flash_image");
+package_extract_file("recovery.img", "/tmp/recovery.img");
+assert(run_program("/tmp/updater.sh") == 0);
+show_progress(0.100000, 0);
